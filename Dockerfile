@@ -1,6 +1,7 @@
 FROM node:lts as builder
+ARG TAG=master
 WORKDIR /work
-RUN npx degit tagyoureit/nodejs-poolController-webClient
+RUN npx degit tagyoureit/nodejs-poolController-webClient#${TAG}
 RUN npm ci
 RUN npm run build:parcel
 RUN npx tsc
